@@ -1,4 +1,4 @@
-# log-overwrite
+# terminal-overwrite
  
  [![Build Status](https://travis-ci.org/mr5/terminal-overwrite.svg?branch=master)](https://travis-ci.org/sindresorhus/log-update)
 
