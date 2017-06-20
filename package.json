@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Log by overwriting the previous output in the terminal. Useful for rendering progress bars, animations, etc.",
   "license": "MIT",
-  "repository": "mr5/log-replace",
+  "repository": "mr5/log-overwrite",
   "author": {
     "name": "Dyson Woo",
     "email": "mr5.simple@gmail.com",
