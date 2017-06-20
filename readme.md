@@ -11,21 +11,21 @@
 ## Install
 
 ```
-$ npm install --save log-update
+$ npm install --save terminal-overwrite
 ```
 
 
 ## Usage
 
 ```js
-const logUpdate = require('log-update');
+const terminalOverwrite = require('terminal-overwrite');
 const frames = ['-', '\\', '|', '/'];
 let i = 0;
 
 setInterval(() => {
 	const frame = frames[i = ++i % frames.length];
 
-	logUpdate(
+	terminalOverwrite(
 `
         ♥♥
    ${frame} unicorns ${frame}
@@ -38,29 +38,29 @@ setInterval(() => {
 
 ## API
 
-### logUpdate(text, ...)
+### terminalOverwrite(text, ...)
 
 Log to stdout.
 
-### logUpdate.clear()
+### terminalOverwrite.clear()
 
 Clear the logged output.
 
-### logUpdate.done()
+### terminalOverwrite.done()
 
 Persist the logged output.<br>
 Useful if you want to start a new log session below the current one.
 
-### logUpdate.stderr(text, ...)
+### terminalOverwrite.stderr(text, ...)
 
 Log to stderr.
 
-### logUpdate.stderr.clear()
-### logUpdate.stderr.done()
+### terminalOverwrite.stderr.clear()
+### terminalOverwrite.stderr.done()
 
-### logUpdate.create(stream)
+### terminalOverwrite.create(stream)
 
-Get a `logUpdate` method that logs to the specified stream.
+Get a `terminalOverwrite` method that logs to the specified stream.
 
 ## License
 
