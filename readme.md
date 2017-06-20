@@ -1,10 +1,12 @@
-# log-update [![Build Status](https://travis-ci.org/sindresorhus/log-update.svg?branch=master)](https://travis-ci.org/sindresorhus/log-update)
+# log-overwrite
+ 
+ [![Build Status](https://travis-ci.org/mr5/terminal-overwrite.svg?branch=master)](https://travis-ci.org/sindresorhus/log-update)
 
 > Log by overwriting the previous output in the terminal.<br>
 > Useful for rendering progress bars, animations, etc.
+> Forked from [log-update](https://github.com/sindresorhus/log-update)
 
 ![](screenshot.gif)
-
 
 ## Install
 
@@ -60,14 +62,7 @@ Log to stderr.
 
 Get a `logUpdate` method that logs to the specified stream.
 
-
-## Examples
-
-- [listr](https://github.com/SamVerschueren/listr) - Uses this module to render an interactive task list
-- [ora](https://github.com/sindresorhus/ora) - Uses this module to render awesome spinners
-- [speed-test](https://github.com/sindresorhus/speed-test) - Uses this module to render a [spinner](https://github.com/sindresorhus/elegant-spinner)
-
-
 ## License
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+* MIT © [Dyson Woo](https://github.com/mr5)
+* MIT © [Sindre Sorhus](https://sindresorhus.com)

@@ -1,30 +1,47 @@
 'use strict';
-const ansiEscapes = require('ansi-escapes');
 const cliCursor = require('cli-cursor');
 const wrapAnsi = require('wrap-ansi');
+const stringWidth = require('string-width');
 
 const main = stream => {
-	let prevLineCount = 0;
+  let prevLineCount = 0;
 
-	const render = function () {
-		cliCursor.hide();
-		let out = [].join.call(arguments, ' ') + '\n';
-		out = wrapAnsi(out, process.stdout.columns || 80, {wordWrap: false});
-		stream.write(ansiEscapes.eraseLines(prevLineCount) + out);
-		prevLineCount = out.split('\n').length;
-	};
+  const render = function () {
+	cliCursor.hide();
+	let out = [].join.call(arguments, ' ') + '\n';
+	out = wrapAnsi(out, process.stdout.columns || 80, { wordWrap: false });
+	stream.write(render.eraseLines(prevLineCount) + out);
+	prevLineCount = render.realLines(out);
+  };
+  render.realLines = (str) => {
+	let lines = 0;
+	for (const line of str.split('\n')) {
+	  lines += Math.ceil(stringWidth(line) / process.stdout.columns);
+	}
 
-	render.clear = () => {
-		stream.write(ansiEscapes.eraseLines(prevLineCount));
-		prevLineCount = 0;
-	};
+	return lines;
+  };
+  render.eraseLines = (lines) => {
+	let eraser = '';
+	for (let i = 0; i <= lines; i++) {
+	  eraser += '\u001b[2K\u001b[K';
+	  if (i < lines) {
+		eraser += '\u001b[1A';
+	  }
+	}
+	return eraser;
+  };
+  render.clear = () => {
+	stream.write(render.eraseLines(prevLineCount));
+	prevLineCount = 0;
+  };
 
-	render.done = () => {
-		prevLineCount = 0;
-		cliCursor.show();
-	};
+  render.done = () => {
+	prevLineCount = 0;
+	cliCursor.show();
+  };
 
-	return render;
+  return render;
 };
 
 module.exports = main(process.stdout);
