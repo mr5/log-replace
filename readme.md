@@ -3,7 +3,7 @@
  [![Build Status](https://travis-ci.org/mr5/terminal-overwrite.svg?branch=master)](https://travis-ci.org/sindresorhus/log-update)
 
 > Log by overwriting the previous output in the terminal.<br>
-> Useful for rendering progress bars, animations, etc.
+> Useful for rendering progress bars, animations, etc.<br>
 > Forked from [log-update](https://github.com/sindresorhus/log-update)
 
 ![](screenshot.gif)
