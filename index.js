@@ -1,6 +1,5 @@
 'use strict';
 const cliCursor = require('cli-cursor');
-const wrapAnsi = require('wrap-ansi');
 const stringWidth = require('string-width');
 
 const main = stream => {
@@ -9,7 +8,6 @@ const main = stream => {
   const render = function () {
 	cliCursor.hide();
 	let out = [].join.call(arguments, ' ') + '\n';
-	out = wrapAnsi(out, process.stdout.columns || 80, { wordWrap: false });
 	stream.write(render.eraseLines(prevLineCount) + out);
 	prevLineCount = render.realLines(out);
   };
